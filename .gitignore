@@ -58,5 +58,6 @@ typings/
 .env
 
 # compiled files (since it's a template)
-dist/
+public/
+!public/index.html
 
