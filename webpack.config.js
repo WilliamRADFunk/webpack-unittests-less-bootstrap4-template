@@ -10,6 +10,13 @@ let config = {
 		path: path.resolve(__dirname, './public'),
 		filename: 'output.js'
 	},
+	resolve: {
+		extensions: ['.js', '.json', '.scss', '.less', '.css', '.jpeg', 'jpg', '.gif', '.png', '.svg'],
+		alias: {
+			images: path.resolve(__dirname, 'src/assets/images'),
+			stylesheets: path.resolve(__dirname, 'src/assets/stylesheets')
+		}
+	},
 	module: {
 		rules: [
 			{

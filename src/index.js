@@ -1,6 +1,6 @@
-import './assets/stylesheets/styles.scss';
-import './assets/stylesheets/styles.less';
-import cat from './assets/images/cat.gif';
+import 'stylesheets/styles.scss';
+import 'stylesheets/styles.less';
+import cat from 'images/cat.gif';
 console.log(cat);
 
 class testClass {
