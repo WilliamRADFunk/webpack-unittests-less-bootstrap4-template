@@ -1,7 +1,6 @@
 import 'stylesheets/styles.scss';
 import 'stylesheets/styles.less';
 import cat from 'images/cat.gif';
-console.log(cat);
 
 class testClass {
 	testFunc(param) {

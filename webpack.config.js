@@ -26,10 +26,10 @@ let config = {
 			},
 			{
 				test: /\.scss$/, // files ending with .scss
-				use: ExtractTextWebpackPlugin.extract({
-					use: ['css-loader', 'sass-loader'], // Use these loaders
+				use: ['css-hot-loader'].concat(ExtractTextWebpackPlugin.extract({
+					use: ['css-loader', 'sass-loader', 'postcss-loader'], // Use these loaders
 					fallback: 'style-loader' // Fallback for any CSS no extracted
-				})
+				}))
 			},
 			{
 				test: /\.less$/, // files ending with .less
