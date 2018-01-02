@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# compiled files (since it's a template)
+dist/
+
