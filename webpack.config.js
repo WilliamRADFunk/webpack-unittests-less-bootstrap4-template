@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 
 let config = {
 	entry: './src/index.js',
@@ -32,7 +34,7 @@ let config = {
 		]
 	},
 	plugins: [
-		new ExtractTextWebpackPlugin('styles.css'),
+		new ExtractTextWebpackPlugin('styles.css')
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, './public'),
@@ -44,3 +46,10 @@ let config = {
 }
 
 module.exports = config;
+
+if (process.env.NODE_ENV === 'production') {
+	module.exports.plugins.push(
+		new webpack.optimize.UglifyJsPlugin(),
+		new OptimizeCSSAssets()
+	);
+}
