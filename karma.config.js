@@ -11,7 +11,17 @@ module.exports = function(config) {
     colors: false,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadless'],
+    browsers: ['Headless'],
+    customLaunchers: {
+      Headless: {
+        base: 'ChromeHeadless',
+        displayName: 'Headless',
+        flags: [
+          // --no-sandbox is required for Jenkins
+          '--no-sandbox'
+        ],
+      },
+    },
     singleRun: false,
     autoWatchBatchDelay: 300,
 

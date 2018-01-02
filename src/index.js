@@ -13,6 +13,8 @@ class testClass {
 	}
 }
 
-const tClass = new testClass();
+document.addEventListener("DOMContentLoaded", function(event) {
+	const tClass = new testClass();
 
-tClass.testFunc('test param');
+	tClass.testFunc('test param');
+});

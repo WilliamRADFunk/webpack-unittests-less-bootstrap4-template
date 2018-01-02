@@ -39,27 +39,16 @@ let config = {
 				})
 			},
 			{
-				test: /\.(jpe?g|png|gif|svg)$/i, // files ending with images
-				loaders: ['file-loader?context=src/assets/images/&name=images/[path][name].[ext]', {
-					loader: 'image-webpack-loader',
-					query: {
-						mozjpeg: {
-							progressive: true
-						},
-						gifsicle: {
-							interlaced: false
-						},
-						optipng: {
-							optimizationLevel: 4
-						},
-						pngquant: {
-							quality: '75-90',
-							speed: 3
-						}
+				test: /\.(png|jpg|jpeg|svg|gif)$/,
+				use: {
+					loader: 'file-loader',
+					options: {
+						name: '[name].[ext]',
+						useRelativePath: true,
+						outputPath: 'public/assets/'
 					}
-				}],
-				exclude: /node_modules/, // exclude the node_modules folder
-				include: __dirname
+				}
+				
 			}
 		]
 	},
