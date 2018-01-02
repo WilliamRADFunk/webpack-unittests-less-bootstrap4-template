@@ -15,7 +15,7 @@ let config = {
 			{
 				test: /\.js$/, // files ending with .js
 				exclude: /node_modules/, // exclude the node_modules folder
-				loader: "babel-loader" // use the (babel-core) loader
+				loader: 'babel-loader' // use the (babel-core) loader
 			},
 			{
 				test: /\.scss$/, // files ending with .scss
@@ -30,6 +30,29 @@ let config = {
 					use: ['css-loader', 'less-loader'], // Use these loaders
 					fallback: 'style-loader' // Fallback for any CSS no extracted
 				})
+			},
+			{
+				test: /\.(jpe?g|png|gif|svg)$/i, // files ending with images
+				loaders: ['file-loader?context=src/assets/images/&name=images/[path][name].[ext]', {
+					loader: 'image-webpack-loader',
+					query: {
+						mozjpeg: {
+							progressive: true
+						},
+						gifsicle: {
+							interlaced: false
+						},
+						optipng: {
+							optimizationLevel: 4
+						},
+						pngquant: {
+							quality: '75-90',
+							speed: 3
+						}
+					}
+				}],
+				exclude: /node_modules/, // exclude the node_modules folder
+				include: __dirname
 			}
 		]
 	},
